@@ -135,11 +135,13 @@ def args():
     parser.add_argument('-l', '--log', help='Log Filename')
     parser.set_defaults(use_proxy=False)
     return parser.parse_args()
-# =============> Main <=============
-def main(args=None):
-    os.system("clear")
-    print(CliColors.HEADER+"""
-
+    
+    
+    
+ ##==========[Logo]==========##
+ 
+logo= CliColors.HEADER+'''
+ 
   ____  _____  _    _ _______ ______ ______ ____  _____   _____ ______ 
  |  _ \|  __ \| |  | |__   __|  ____|  ____/ __ \|  __ \ / ____|  ____|
  | |_) | |__) | |  | |  | |  | |__  | |__ | |  | | |__) | |    | |__   
@@ -147,9 +149,18 @@ def main(args=None):
  | |_) | | \ \| |__| |  | |  | |____| |   | |__| | | \ \| |____| |____ 
  |____/|_|  \_\\____/   |_|  |______|_|    \____/|_|  \_\\_____|______|
                                                                        
-                                                                                                                                                             
-                                                                                                                                                             """)
-    print("")
+                                                                       
+                                                                       '''
+ 
+###=============[Clear]=============###
+def clear ():
+    os.system("clear")
+    print(logo)
+
+# =============> Main <=============#
+def main(args=None):
+    clear();
+
 
     if args and args.single_password and args.password_list:
         print(CliColors.FAIL+"[x] You can't use single password with password list.")
@@ -166,19 +177,20 @@ def main(args=None):
         if args and args.password_list:
             password_file = args.password_list
         else:
-            password_file = input(CliColors.OKCYAN+"[?] Password List Filename:\t")
+            password_file = input(CliColors.OKCYAN+"[?] Password List Filename:")
 
         if os.path.exists(password_file):
             with open(password_file, 'rt', newline='', encoding='utf-8') as file:
                 passwords = file.read().replace("\r\n", "\n").replace("\r", "\n").split("\n")
         else:
             print(CliColors.FAIL+"[x] Passwords File does not exist.")
-            sys.exit(-1)
+            time.sleep(2)
+            main();
 
     if args and args.user:
         user = args.user
     else:
-        user = input(CliColors.OKCYAN+"[?] Email/Username/ID/Phone:\t")
+        user = input(CliColors.OKCYAN+"[?] Email/Username/ID/Phone:")
 
     print("")
     print(CliColors.OKCYAN+"[*] Processing...")
@@ -210,5 +222,8 @@ def main(args=None):
     _log.write_colored("Took {} seconds to complete this operation.".format(str(round(end_time, 2))), 'magenta')
     print("")
 
-if __name__ == '__main__':
-    sys.exit(main(args()))
+
+
+
+##=====Start=====##
+main(args());
