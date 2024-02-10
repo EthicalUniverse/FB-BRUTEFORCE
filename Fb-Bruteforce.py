@@ -137,6 +137,7 @@ def args():
     return parser.parse_args()
 # =============> Main <=============
 def main(args=None):
+    os.system("clear")
     print(CliColors.HEADER+"""
 
   ______ ____      ____  _____  _    _ _______ ______ ______ ____  _____   _____ ______ 
