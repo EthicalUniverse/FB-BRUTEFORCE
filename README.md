@@ -19,6 +19,8 @@ Open the terminal and type following commands.
 
 * `git clone https://github.com/EthicalUniverse/FB-BRUTEFORCE.git`
 
+* `python3 -m pip install requests bs4`
+
 * `cd FB-BRUTEFORCE`
 
 * `chmod +x *`
