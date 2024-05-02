@@ -28,7 +28,7 @@ Open the terminal and type following commands.
 
 * `chmod +x *`
 
-* `Run.py`
+* `python Run.py`
 
 
 ------------------------------------------------------------------------
