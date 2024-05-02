@@ -21,6 +21,9 @@ Open the terminal and type following commands.
 
 * `python3 -m pip install requests bs4`
 
+* `python3 -m pip install mechanize`
+
+
 * `cd FB-BRUTEFORCE`
 
 * `chmod +x *`
